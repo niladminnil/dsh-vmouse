@@ -189,7 +189,7 @@ if (-not $SkipRelease) {
     }
 
     $uploadUrl = ($release.upload_url -replace '\{.*$', '')
-    $uploadUri = "$uploadUrl?name=$($asset.Name)"
+    $uploadUri = "{0}?name={1}" -f $uploadUrl, $asset.Name
     $bytes = [System.IO.File]::ReadAllBytes($asset.FullName)
     $uploadHeaders = @{
         Authorization          = "Bearer $Token"
