@@ -71,7 +71,7 @@
 复制下面这句话，发给任意 DSH 对话里的 agent：
 
 ```text
-帮我安装虚拟鼠标插件：用 plugin_manager 的 install_bundle，target 传 https://github.com/<你的GitHub用户名>/dsh-vmouse/archive/refs/tags/v1.0.0.tar.gz
+帮我安装虚拟鼠标插件：用 plugin_manager 的 install_bundle，target 传 https://github.com/niladminnil/dsh-vmouse/archive/refs/tags/v1.0.0.tar.gz
 ```
 
 agent 会让 pnpm 直接从 GitHub 拉 tarball 安装，**不需要安装 git**。装好后让 agent 调一次 `mcp__vmouse__status` 验证；如果这时还看不到 `mcp__vmouse__*` 工具，重新打开一次 DSH Desktop 即可。
@@ -214,7 +214,7 @@ dsh-vmouse\
 **dsh-vmouse** is a bundle for DSH (DeepSeek Harness Desktop) that gives the agent its own mouse on Windows: a separate cyan cursor painted in a topmost, click-through layered window, with clicks, drags and scrolls injected as window messages (`PostMessage`) so the user's real pointer is never moved or captured. Only `real: true` briefly borrows the physical pointer and restores it.
 
 - **Tools** (MCP serverName `vmouse`): `mcp__vmouse__click`, `move`, `drag`, `scroll`, `status`; plus a `virtual-mouse` skill.
-- **Install** (recommended): send this sentence to any agent in DSH — "帮我安装虚拟鼠标插件：用 plugin_manager 的 install_bundle，target 传 https://github.com/<你的GitHub用户名>/dsh-vmouse/archive/refs/tags/v1.0.0.tar.gz" — or run `install.cmd` / `dsh plugin --profile desktop add "link:<仓库绝对路径>"` after fully quitting DSH, or install the unpacked zip folder via `plugin_manager`.
+- **Install** (recommended): send this sentence to any agent in DSH — "帮我安装虚拟鼠标插件：用 plugin_manager 的 install_bundle，target 传 https://github.com/niladminnil/dsh-vmouse/archive/refs/tags/v1.0.0.tar.gz" — or run `install.cmd` / `dsh plugin --profile desktop add "link:<仓库绝对路径>"` after fully quitting DSH, or install the unpacked zip folder via `plugin_manager`.
 - **Requirements**: Windows 10/11, system Windows PowerShell 5.1, and Node.js (bundled with DSH; override with `DSH_VMOUSE_NODE`). No admin rights, no third-party dependencies, no network access.
 - **Limitations**: window-message injection does not work for games / Raw Input / DirectX·Vulkan surfaces (fall back to `real: true`); UIPI blocks admin-elevated target windows.
 - **License**: MIT.

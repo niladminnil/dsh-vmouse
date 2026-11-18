@@ -25,10 +25,10 @@
 ## 方式 A【推荐 · 不用装任何东西】一句话交给 agent
 
 1. 打开 DSH 里任意一个对话（哪个 agent 都行）。
-2. 把下面这句话原样发出去，**把 `<你的GitHub用户名>` 换成你的 GitHub 用户名**：
+2. 把下面这句话原样发出去，**把 `niladminnil` 换成你的 GitHub 用户名**：
 
    ```text
-   帮我安装虚拟鼠标插件：用 plugin_manager 的 install_bundle，target 传 https://github.com/<你的GitHub用户名>/dsh-vmouse/archive/refs/tags/v1.0.0.tar.gz
+   帮我安装虚拟鼠标插件：用 plugin_manager 的 install_bundle，target 传 https://github.com/niladminnil/dsh-vmouse/archive/refs/tags/v1.0.0.tar.gz
    ```
 
 3. agent 会调用 `plugin_manager` 的 `install_bundle`，由 pnpm 从 GitHub 下载 `v1.0.0` 的 tarball 安装到当前 profile 的 `node_modules\dsh-vmouse`，并把依赖写进 profile 的 `package.json`。这一步会执行 pnpm，属于正常安装行为。

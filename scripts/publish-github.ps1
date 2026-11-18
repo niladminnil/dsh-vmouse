@@ -188,7 +188,7 @@ if (-not $SkipRelease) {
         "release exists: $($release.html_url)"
     }
 
-    $uploadUrl = ($release.upload_url -replace '\{\?name,label\}', '')
+    $uploadUrl = ($release.upload_url -replace '\{.*$', '')
     $uploadUri = "$uploadUrl?name=$($asset.Name)"
     $bytes = [System.IO.File]::ReadAllBytes($asset.FullName)
     $uploadHeaders = @{

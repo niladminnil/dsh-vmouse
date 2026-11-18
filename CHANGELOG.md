@@ -29,4 +29,4 @@
 - 仅向窗口投递鼠标消息并绘制屏幕浮层；受 Windows UIPI 限制，不能操作管理员权限窗口。
 - 仓库内脚本均为明文，方便安装前审查；测试日志只写 `test\` 下的本地文件。
 
-[1.0.0]: https://github.com/<你的GitHub用户名>/dsh-vmouse/releases/tag/v1.0.0
+[1.0.0]: https://github.com/niladminnil/dsh-vmouse/releases/tag/v1.0.0
