@@ -1,0 +1,32 @@
+# 虚拟鼠标（dsh-vmouse）：给 agent 一只自己的屏幕光标。
+#
+# 本 patch 不写死任何机器路径：
+#   - 用系统自带的 powershell.exe 启动 launch.ps1（launcher 再去找 DSH 自带的 node）；
+#   - launcher 与 skill 目录都通过 baseUrl（profile 目录）+ node_modules 里的包路径解析，
+#     所以 link / tarball / git / npm 各种安装方式都能用；
+#   - 包名与目录名一致（dsh-vmouse），安装目录由 pnpm 决定，这里只拼相对路径。
+- insert:
+    - id: vmouse-mcp
+      name: '@deepseek-ai/dsh-mcp-client'
+      config:
+        serverName: vmouse
+        transport: stdio
+        command: 'powershell.exe'
+        args:
+          - '-NoProfile'
+          - '-NonInteractive'
+          - '-STA'
+          - '-ExecutionPolicy'
+          - 'Bypass'
+          - '-File'
+          - !!js 'decodeURIComponent(baseUrl).replace("file:///", "") + "node_modules/dsh-vmouse/launch.ps1"'
+        toolCallTimeoutMs: 60000
+        failOnStartupError: true
+    - id: vmouse-skill-filesystem
+      name: '@deepseek-ai/dsh-skill-filesystem'
+      config:
+        providerName: vmouse
+        includeDefaultRoots: false
+        customSkillDirs:
+          - !!js 'decodeURIComponent(baseUrl).replace("file:///", "") + "node_modules/dsh-vmouse/skills"'
+        watch: false

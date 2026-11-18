@@ -1,0 +1,13 @@
+# 依赖与构建产物
+node_modules/
+dist/
+*.tgz
+
+# 测试运行时产物（test/testtarget.ps1 与 test/rpc.mjs 会写）
+test/clicks.log
+test/target.json
+test/testtarget.error.log
+
+# 操作系统/编辑器杂项
+.DS_Store
+Thumbs.db

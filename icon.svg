@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="vm-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a1e33"/>
+      <stop offset="0.55" stop-color="#0c2b4a"/>
+      <stop offset="1" stop-color="#123f63"/>
+    </linearGradient>
+    <linearGradient id="vm-cursor" x1="0.15" y1="0" x2="0.85" y2="1">
+      <stop offset="0" stop-color="#c8fcff"/>
+      <stop offset="0.45" stop-color="#4fe0f5"/>
+      <stop offset="1" stop-color="#1f8ae8"/>
+    </linearGradient>
+    <linearGradient id="vm-ring" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#1f8ae8" stop-opacity="0.1"/>
+      <stop offset="0.5" stop-color="#7ff5ff" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#1f8ae8" stop-opacity="0.1"/>
+    </linearGradient>
+    <radialGradient id="vm-star-glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#7ff5ff" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#7ff5ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- 独立的 agent 图层 -->
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#vm-bg)"/>
+
+  <!-- 虚线轨道：这是与真实指针无关的一层浮层光标 -->
+  <circle cx="32" cy="32" r="24" fill="none" stroke="url(#vm-ring)" stroke-width="1.6" stroke-dasharray="2.5 6.5" stroke-linecap="round"/>
+
+  <!-- 鼠标指针箭头：深色描边把它从轨道上分离出来 -->
+  <path d="M20.6 15.3 L20.6 46.65 L28.85 39.23 L33.47 49.62 L38.75 47.31 L34.13 37.41 L45.35 37.41 Z"
+        fill="none" stroke="#061726" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M20.6 15.3 L20.6 46.65 L28.85 39.23 L33.47 49.62 L38.75 47.31 L34.13 37.41 L45.35 37.41 Z"
+        fill="url(#vm-cursor)" stroke="#eafcff" stroke-width="1.5" stroke-linejoin="round"/>
+
+  <!-- AI 星标：坐在轨道上，表示「这是 agent 自己的光标」 -->
+  <circle cx="47" cy="13" r="9" fill="url(#vm-star-glow)"/>
+  <path d="M47 5 Q48.2 11.8 55 13 Q48.2 14.2 47 21 Q45.8 14.2 39 13 Q45.8 11.8 47 5 Z" fill="#9ff7ff"/>
+  <circle cx="47" cy="13" r="1.5" fill="#ffffff"/>
+
+  <!-- 小星点，呼应点击波纹 -->
+  <path d="M15 45.5 Q15.7 48.3 18.5 49 Q15.7 49.7 15 52.5 Q14.3 49.7 11.5 49 Q14.3 48.3 15 45.5 Z" fill="#5fd7ff" opacity="0.9"/>
+</svg>

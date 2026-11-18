@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Virtual Mouse (the agent's own cursor)",
+    "description": "Gives the agent its own mouse: a separate cyan cursor on screen whose clicks, drags and scrolls never move or capture the user's real pointer."
+  }
+}

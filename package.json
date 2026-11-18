@@ -1,0 +1,36 @@
+{
+  "name": "dsh-vmouse",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A separate virtual mouse for the agent: an on-screen cyan cursor, with clicks, drags and scrolls injected as window messages so the user's real pointer is never moved or captured.",
+  "keywords": [
+    "dsh",
+    "dsh-bundle",
+    "deepseek-harness",
+    "virtual-mouse",
+    "screen-automation",
+    "windows"
+  ],
+  "license": "MIT",
+  "exports": {
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE",
+    "launch.ps1",
+    "server.mjs",
+    "vmouse.ps1",
+    "locale/*.json",
+    "icon.svg",
+    "skills/**"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

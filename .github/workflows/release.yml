@@ -1,0 +1,32 @@
+name: release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  pack:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Pack bundle tarball
+        shell: pwsh
+        run: ./scripts/pack.ps1 -OutDir dist
+
+      - name: Show artifacts
+        shell: pwsh
+        run: Get-ChildItem dist | Format-Table Name, Length
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*.tgz
+          generate_release_notes: true
+          fail_on_unmatched_files: true
